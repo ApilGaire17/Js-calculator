@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
     <link rel="stylesheet" href="apil.css">
-    <table border="1"> 
+    <table> 
         <tr>
              <input type="text"  id="result">
         </tr>
@@ -37,10 +38,11 @@
             <td><button onclick="display('0')">0</button></td>
             <td><button onclick="display('.')">.</button></td>
             <td><button onclick="display('*10')">*10</button></td>
-            <td><button onclick="display('Ans')" id="color">Ans</button></td>
+            <td><button onclick="answer()" id="color">Ans</button></td>
             <td><button onclick="calculate()" id="color">=</button></td>
         </tr>
     </table>
+    </div>
     <!-- <BUTTON onclick="calculate()"></BUTTON> -->
     <script>
         
@@ -50,16 +52,17 @@
         function reset(){
             document.getElementById("result").value="";
         }
-        // function decrease(){
-        //     var a=Number(document.getElementById("result").value);
-        //     var r=a%10;
-        //     var sum=r*10-a;
-        //     document.getElementById("result").value=sum;
-        // }
-        // function evaluate(){
-        //     alert("success");
-        //     document.getElementById("result").value = eval(document.getElementById("result").value);
-        // }
+        function decrease(){
+            
+             var a=document.getElementById("result").value;
+             document.getElementById("result").value=a.shift();
+
+        }
+        function answer(){
+            
+            var a=document.getElementById("result").value;
+            document.getElementById("result").value=a;
+        }
         function calculate(){
             if(document.getElementById("result").value){
             document.getElementById("result").value = eval(document.getElementById("result").value);
